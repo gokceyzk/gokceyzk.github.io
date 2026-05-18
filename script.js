@@ -68,12 +68,12 @@ const mapData = [
         `
     },
     {
-        coords: [38.453688, 27.112205], // Attilla İLhan Koordinatları
+        coords: [38.453688, 27.112205], // Attila İlhan Koordinatları
         popupContent: `
             <div style="font-family: Arial, sans-serif;">
-                <h3 style="margin-bottom: 5px; color: #a0522d;">Attilla İlhan</h3>
+                <h3 style="margin-bottom: 5px; color: #a0522d;">Attila İlhan</h3>
                 <p style="margin-top: 0; font-size: 14px; color: #555;">
-                    Atilla İLhan'ın çocukluk ve gençlik yıllarının bir bölümünü geçirdiği, Karşıyaka'da yaşadığı dönemden kalma evdir.
+                    Attila İlhan'ın çocukluk ve gençlik yıllarının bir bölümünü geçirdiği, Karşıyaka'da yaşadığı dönemden kalma evdir.
                 </p>
             </div>
         `
