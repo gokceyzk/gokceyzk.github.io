@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzmir Minimalist Harita</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Container for map and sidebar */
+        .container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        #map {
+            flex-grow: 1;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        /* Floating Side Panel */
+        #side-panel {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            bottom: 20px;
+            width: 360px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 1000; /* Above the map */
+            padding: 32px 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(120%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Smooth modern slide */
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            pointer-events: auto;
+            overflow-y: auto;
+        }
+        
+        /* When active, slide in */
+        #side-panel.active {
+            transform: translateX(0);
+        }
+
+        /* Close button for panel */
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4b5563;
+            transition: background 0.2s, color 0.2s;
+        }
+        
+        .close-btn:hover {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        /* Placeholder state */
+        .placeholder {
+            color: #6b7280;
+            text-align: center;
+            margin-top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="map"></div>
+        <div id="side-panel">
+            <button class="close-btn" onclick="document.getElementById('side-panel').classList.remove('active')" title="Kapat">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div id="info-content">
+                <p class="placeholder">Bilgi görmek için haritadaki işaretçilerden birine tıklayın.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Map Data & Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
