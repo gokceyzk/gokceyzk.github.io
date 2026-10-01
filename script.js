@@ -123,11 +123,10 @@ const map = L.map('map', {
 // Zoom kontrol aracı eklentisi (Sağ alt)
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-// Harita Katmanı (CartoDB Voyager - Mahalle ve sokak isimlerini gösteren temiz yol haritası)
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 20
+// Harita Katmanı (openstreetmap)
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
 }).addTo(map);
 
 // --- İŞARETÇİLER (MARKERS) VE YAN PANEL (SIDE PANEL) ETKİLEŞİMİ ---
